@@ -16,6 +16,10 @@
 
 @import "semantic-ui";
 
+body {
+  background: url('/img/bg.jpg');
+}
+
 .gft-menu {
   float:left;
   shape-outside: url('/img/gft.png');
@@ -62,8 +66,5 @@
 .main-container {
   z-index:10;
   position: relative;
-}
-
-.posts {
   margin-top: 59px;
 }
