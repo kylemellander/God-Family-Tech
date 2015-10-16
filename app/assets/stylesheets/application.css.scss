@@ -15,3 +15,55 @@
  */
 
 @import "semantic-ui";
+
+.gft-menu {
+  float:left;
+  shape-outside: url('/img/gft.png');
+  shape-image-threshold: 0.5;
+  shape-margin: 20px;
+  max-width: 734px;
+  z-index: 1;
+  position: relative;
+}
+.gft-title {
+  max-width: 718px;
+}
+.km-blue {
+  width: 27.319498%;
+  background: #7CD0E0;
+}
+.km-red {
+  background: #E49E7A;
+  width: 31.2977715%;
+}
+.km-yellow {
+  background: #E9EA92;
+  width: 41.307799%;
+}
+.gft-title .km-column {
+  text-align:center;
+  padding:8px 0;
+  display:inline-block;
+}
+.gft-title .km-column a:hover {
+  background: none;
+  color: #fff;
+}
+.navbar-toggle {
+  position:fixed;
+  top:59px;
+  right: 8px;
+  z-index: 11;
+}
+.navbar-toggle button {
+  background: #7CD0E0 !important;
+}
+
+.main-container {
+  z-index:10;
+  position: relative;
+}
+
+.posts {
+  margin-top: 59px;
+}
