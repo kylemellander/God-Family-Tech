@@ -30,4 +30,9 @@
 
 <br>
 
+<h1>All Tags</h1>
+<% Tag.all.each do |tag| %>
+  <%= link_to tag.name, tag %>
+<% end %>
+
 <%= link_to 'New Post', new_post_path %>

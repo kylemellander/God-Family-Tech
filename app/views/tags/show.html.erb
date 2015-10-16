@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tag.name %>
-</p>
+<h1><%= @tag.name %></h1>
+
+<% @tag.posts.each do |post| %>
+  <p><%= link_to post.title, post %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
 <%= link_to 'Back', tags_path %>
