@@ -22,6 +22,11 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    params[:post][:tag_ids].each do |tag_id|
+      if tag_id != ""
+        @post.tags.push(Tag.find(tag_id))
+      end
+    end
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
@@ -32,6 +37,12 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
+    params[:post][:tag_ids].each do |tag_id|
+      if tag_id != ""
+        @post.tags.push(Tag.find(tag_id))
+      end
+    end
+
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
     else
@@ -53,6 +64,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :content, :summary, :img)
+      params.require(:post).permit(:title, :content, :summary, :img, :tags)
     end
 end
