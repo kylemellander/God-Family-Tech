@@ -37,6 +37,9 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
+    @post.tags.each do |tag|
+      @post.tags.destroy(tag)
+    end
     params[:post][:tag_ids].each do |tag_id|
       if tag_id != ""
         @post.tags.push(Tag.find(tag_id))
