@@ -29,6 +29,12 @@ body {
   z-index: 1;
   position: relative;
 }
+@media (max-width: 732px) {
+  .gft-menu {
+    shape-outside: polygon(0 0, 100% 0, 0 100%, 0 0);
+  }
+}
+
 .gft-title {
   max-width: 718px;
 }
