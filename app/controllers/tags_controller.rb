@@ -2,11 +2,6 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
   before_action :admin_auth!, except: :show
 
-  # GET /tags
-  def index
-    @tags = Tag.all
-  end
-
   # GET /tags/1
   def show
   end
@@ -40,11 +35,11 @@ class TagsController < ApplicationController
     end
   end
 
-  # DELETE /tags/1
-  def destroy
-    @tag.destroy
-    redirect_to tags_url, notice: 'Tag was successfully destroyed.'
-  end
+  # # DELETE /tags/1
+  # def destroy
+  #   @tag.destroy
+  #   redirect_to tags_url, notice: 'Tag was successfully destroyed.'
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe "the edit a tag process" do
   it "edits a new tag" do
+    user = FactoryGirl.create(:user)
+    page.set_rack_session('warden.user.user.key' => User.serialize_into_session(user).unshift("User"))
     tag = Tag.create(name: "Ok")
     visit tag_path(tag)
     click_on 'Edit'
@@ -11,6 +13,8 @@ describe "the edit a tag process" do
   end
 
   it "gives error when no name is entered" do
+    user = FactoryGirl.create(:user)
+    page.set_rack_session('warden.user.user.key' => User.serialize_into_session(user).unshift("User"))
     tag = Tag.create(name: "Ok")
     visit tag_path(tag)
     click_on 'Edit'

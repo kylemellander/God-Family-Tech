@@ -4,7 +4,7 @@ describe Post do
   it { should have_and_belong_to_many :tags }
   it { should validate_presence_of :title }
   it { should validate_presence_of :content }
-  it { should allow_value("frank.jpg").for(:img) }
-  it { should allow_value("").for(:img) }
-  it { should_not allow_value("frank.svg").for(:img) }
+  it { should validate_attachment_content_type(:img).
+                  allowing('image/png', 'image/gif').
+                  rejecting('text/plain', 'text/xml') }
 end

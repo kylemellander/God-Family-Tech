@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.update(user_id: current_user.id, post_id: params[:post_id])
       redirect_to @post, notice: 'Comment was successfully created.'
     else
-      render :new
+      render template: "posts/show"
     end
   end
 

@@ -45,12 +45,12 @@
   <% end %>
 </div>
   <%= form_for [@post, @comment], html: {class:"ui form"} do |f| %>
-    <% if @post.errors.any? %>
+    <% if @comment.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this post from being saved:</h2>
 
         <ul>
-        <% @post.errors.full_messages.each do |message| %>
+        <% @comment.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
