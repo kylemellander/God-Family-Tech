@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :admin_auth!, except: :show
 
   # GET /tags
   def index
@@ -54,5 +55,14 @@ class TagsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def tag_params
       params.require(:tag).permit(:name)
+    end
+
+    def admin_auth!(opts={})
+      if !current_user.nil? && current_user.admin
+        opts[:scope] = :user
+        warden.authenticate!(opts) if (!devise_controller? || opts.delete(:force))
+      else
+        redirect_to root_path, alert: "You do not have permission to do that."
+      end
     end
 end

@@ -10,8 +10,10 @@
   <div class="ui right sidebar inverted vertical menu">
     <%= link_to "Home", root_path, class:"item" %>
     <% if user_signed_in? %>
-      <%= link_to "Add A Post", new_post_path, class:"item" %>
-      <%= link_to "Add A Tag", new_tag_path, class:"item" %>
+      <% if current_user.admin %>
+        <%= link_to "Add A Post", new_post_path, class:"item" %>
+        <%= link_to "Add A Tag", new_tag_path, class:"item" %>
+      <% end %>
       <%= link_to "Logout", destroy_user_session_path, class:"item", method:"delete" %>
     <% else %>
       <%= link_to "Sign in", new_user_session_path, class:"item" %>

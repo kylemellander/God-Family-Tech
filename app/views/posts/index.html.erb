@@ -5,8 +5,9 @@
         <img src="<%= post.img %>" class="ui medium rounded image">
         <h2><%= post.title %></h2>
       <% end %>
-      <p><%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
+      <% if user_signed_in? && current_user.admin %>
+        <p><%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
       <p><%= simple_format post.summary %></p>
     </div>
   <% end %>

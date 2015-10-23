@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :admin_auth!, except: [:index, :show]
 
   # GET /posts
   def index
@@ -68,5 +69,14 @@ class PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:title, :content, :summary, :img, :tags)
+    end
+
+    def admin_auth!(opts={})
+      if !current_user.nil? && current_user.admin
+        opts[:scope] = :user
+        warden.authenticate!(opts) if (!devise_controller? || opts.delete(:force))
+      else
+        redirect_to root_path, alert: "You do not have permission to do that."
+      end
     end
 end
