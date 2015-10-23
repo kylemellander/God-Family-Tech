@@ -14,10 +14,21 @@
  *= require_self
  */
 
+h1.ui.header.title {
+  font-size:4em;
+}
+
 @import "semantic-ui";
 
 body {
-  background-image: url('/img/bg.jpg');
+  background: url('/img/bg.jpg');
+}
+.pusher {
+  background: url('/img/bg.jpg') !important;
+  padding-left:12px;
+}
+a {
+  color:#4b4b4b;
 }
 
 .gft-menu {
