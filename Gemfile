@@ -12,6 +12,7 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
+gem 'paperclip'
 
 group :development, :test do
   gem 'rspec-rails'

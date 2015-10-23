@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :match_user!
 
   def create
     @comment = Comment.new(comment_params)
@@ -37,6 +38,12 @@ private
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def match_user!
+    if !current_user.admin && current_user != @comment.user
+      redirect_to post_path(@post), alert: "You do not have permission to do that."
+    end
   end
 
 end
