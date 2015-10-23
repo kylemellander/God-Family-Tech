@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post, html: {class:"ui form"} do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -27,9 +27,11 @@
     <%= f.label :img %><br>
     <%= f.text_field :img %>
   </div>
-  <div class="field">
-    <%= f.label :tag_ids, "Tags" %>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
+  <div class="field inline">
+    <%= f.label :tag_ids, "Tags:" %>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
+      <div class="box-group"><%= b.check_box %> <%= b.label %></div>
+    <% end %>
   </div>
 
   <div class="actions">

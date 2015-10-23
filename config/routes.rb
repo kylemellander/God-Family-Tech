@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :tags
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   resources :tags
   # The priority is based upon order of creation: first created -> highest priority.

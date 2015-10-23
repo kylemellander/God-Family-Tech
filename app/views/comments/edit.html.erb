@@ -1,0 +1,10 @@
+<% content_for :title, "Edit Comment - " %>
+
+<h1>Editing Comment</h1>
+
+<div class="links">
+  <%= link_to 'Show', @post %> |
+  <%= link_to 'Back', post_path(@post) %>
+</div>
+
+<%= render 'form' %>
