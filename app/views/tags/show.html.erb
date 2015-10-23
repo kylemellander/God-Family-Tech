@@ -1,7 +1,5 @@
 <% content_for :title, "#{@tag.name} - " %>
 
-<p id="notice"><%= notice %></p>
-
 <h1><%= @tag.name %></h1>
 
 <% @tag.posts.each do |post| %>
