@@ -21,8 +21,8 @@ body {
 }
 
 .gft-menu {
-  float:left;
-  shape-outside: url('/img/gft.png');
+  float:right;
+  shape-outside: url('/img/gft_r.png');
   shape-image-threshold: 0.5;
   shape-margin: 20px;
   max-width: 734px;
@@ -31,12 +31,13 @@ body {
 }
 @media (max-width: 732px) {
   .gft-menu {
-    shape-outside: polygon(0 0, 100% 0, 0 100%, 0 0);
+    shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
   }
 }
 
 .gft-title {
   max-width: 718px;
+  margin-left: auto;
 }
 .km-blue {
   width: 27.319498%;
@@ -72,5 +73,4 @@ body {
 .main-container {
   z-index:10;
   position: relative;
-  margin-top: 59px;
 }
